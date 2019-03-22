@@ -1,0 +1,21 @@
+<form #userForm="ngForm">
+    <label>Select Program </label>
+    <select name="program" (change)="programChanged($event.target.value)" [(ngModel)]="selectedProgramName">
+        <option value="undefined" disabled name="Select Program">Select Program</option>
+        <option *ngFor="let pgm of programs" [value]="pgm">{{pgm}}</option>
+    </select>
+
+    <div>
+        <label>Customer TFN: <span>{{selectedProgram?.customerTFN}}</span></label>
+    </div>
+    <div>
+        <label>Title: <span>{{selectedProgram?.title}}</span></label>
+    </div>
+    <div>
+        <label>License Number: <span>{{selectedProgram?.licenseNumbers}}</span></label>
+    </div>
+
+    <div id="Footer" [innerHTML]="selectedProgram?.mainFooter" style="width:100%, height:auto;"> </div>
+
+<div id="Footer" [innerHTML]="selectedProgram?.footerContactSection" style="width:100%, height:auto;"> </div>    
+</form>
